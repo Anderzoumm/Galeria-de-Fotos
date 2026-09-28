@@ -1,0 +1,20 @@
+{% extends 'galeria/base.html' %}
+
+{% block title %}Formulário de Imagem{% endblock %}
+
+{% block content %}
+
+<div class="painel">
+    <h2>{% if imagem %}Editar{% else %}Nova{% endif %} Imagem</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="acoes">
+            <button type="submit" class="btn btn-primario">Salvar</button>
+            <a class="btn" href="{% url 'imagem_list' %}">Cancelar</a>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
